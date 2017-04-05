@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 public class LandingPage extends BasePage {
 
     @FindBy(xpath = "//b[@class='lightcaret mt-2']")
-    WebElement myAccountDropDown;
+    WebElement myAccountDropDownOption;
 
     @FindBy(xpath = "//a[@href='http://www.phptravels.net/login']")
     WebElement loginDropDownOption;
@@ -33,7 +33,7 @@ public class LandingPage extends BasePage {
 
     public LoginPage goToLoginPage()
     {
-        myAccountDropDown.click();
+        myAccountDropDownOption.click();
         loginDropDownOption.click();
         return new LoginPage();
     }
