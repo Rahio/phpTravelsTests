@@ -19,25 +19,22 @@ public class TestTemplate {
     protected WebDriverWait wait;
     private StringBuffer verificationErrors = new StringBuffer();
 
-        @BeforeClass(alwaysRun = true)
-        public void setUp() throws Exception {
-            WebDriverFactory.startBrowser(true);
-            driver = WebDriverFactory.getDriver();
-            wait = new WebDriverWait(driver, 5);
-            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        }
-
-
-        @AfterClass(alwaysRun = true)
-        public void tearDown() throws Exception {
-            driver.quit();
-            String verificationErrorString = verificationErrors.toString();
-            if (!"".equals(verificationErrorString)) {
-            fail(verificationErrorString);
-            }
-        }
-
-
+    @BeforeClass(alwaysRun = true)
+    public void setUp() throws Exception {
+        WebDriverFactory.startBrowser(true);
+        driver = WebDriverFactory.getDriver();
+        wait = new WebDriverWait(driver, 5);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
+
+    @AfterClass(alwaysRun = true)
+    public void tearDown() throws Exception {
+        driver.quit();
+        String verificationErrorString = verificationErrors.toString();
+        if (!"".equals(verificationErrorString)) {
+                fail(verificationErrorString);
+        }
+    }
+}
 
 
