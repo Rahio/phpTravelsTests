@@ -1,8 +1,6 @@
-package com.selenium.test.pages;
+package com.selenium.test.pages.userModule;
 
-import com.selenium.test.configuration.TestsConfig;
-import com.selenium.test.webtestsbase.BasePage;
-import junit.extensions.TestSetup;
+import com.selenium.test.pages.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
