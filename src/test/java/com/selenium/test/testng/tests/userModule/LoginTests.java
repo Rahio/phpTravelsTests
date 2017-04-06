@@ -1,9 +1,11 @@
 package com.selenium.test.testng.tests.userModule;
 
+import com.selenium.test.pages.BasePhptravelsPage;
 import com.selenium.test.pages.userModule.AccountPage;
 import com.selenium.test.pages.userModule.LandingPage;
 import com.selenium.test.pages.userModule.LoginPage;
 import com.selenium.test.testng.tests.TestTemplate;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -52,4 +54,5 @@ public class LoginTests extends TestTemplate {
         Assert.assertEquals(new LoginPage().getInvalidCredentialsMessage(), INVALID_CREDENTIALS_MESSAGE);
 
     }
+
 }

@@ -2,23 +2,24 @@ package com.selenium.test.pages.userModule;
 
 import com.selenium.test.configuration.TestsConfig;
 import com.selenium.test.pages.BasePage;
+import com.selenium.test.pages.BasePhptravelsPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 /**
  * Created by Rahi on 2017-04-04.
  */
-public class LandingPage extends BasePage {
-
-    @FindBy(xpath = "//b[@class='lightcaret mt-2']")
-    WebElement myAccountDropDownOption;
+public class LandingPage extends BasePhptravelsPage {
 
     @FindBy(xpath = "//a[@href='http://www.phptravels.net/login']")
     WebElement loginDropDownOption;
 
 
+    /*@FindBy(xpath = "//select[@id='currency']")
+    protected WebElement currecnyDropDown;
+*/
     public LandingPage() {
-        super(true);
+        super();
     }
 
     @Override
@@ -33,8 +34,13 @@ public class LandingPage extends BasePage {
 
     public LoginPage goToLoginPage()
     {
-        myAccountDropDownOption.click();
+        clickOnMyAccountDropdown();
         loginDropDownOption.click();
         return new LoginPage();
     }
+  /*  public void clickLanguage()
+    {
+        currecnyDropDown.click();
+    }
+*/
 }

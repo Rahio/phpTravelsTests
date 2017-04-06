@@ -1,6 +1,7 @@
 package com.selenium.test.pages.userModule;
 
 import com.selenium.test.pages.BasePage;
+import com.selenium.test.pages.BasePhptravelsPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by Rahi on 2017-04-04.
  */
-public class LoginPage extends BasePage {
+public class LoginPage extends BasePhptravelsPage {
 
     @FindBy(name = "username")
     WebElement usernameField;
@@ -26,7 +27,7 @@ public class LoginPage extends BasePage {
 
 
     public LoginPage() {
-        super(true);
+        super();
     }
 
     @Override

@@ -32,7 +32,7 @@ public class TestsConfig {
     private String version = "";
 
     @Property("base.url")
-    private static String baseURL = "http://localhost";
+    private static String baseURL = "http://www.phptravels.net";
 
     /**
      * getting browser object
