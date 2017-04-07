@@ -1,6 +1,7 @@
 package com.selenium.test.testng.smokeTests;
 
 import com.selenium.test.pages.BasePhptravelsPage;
+import com.selenium.test.pages.Navigate;
 import com.selenium.test.pages.userModule.HomePage;
 import com.selenium.test.pages.userModule.LandingPage;
 import com.selenium.test.testng.tests.TestTemplate;
@@ -22,18 +23,18 @@ import static org.testng.Assert.fail;
 public class ChangeCurrencyTests extends TestTemplate{
 
     private static final String CURRENCY = "GBP";
-
-    //expecty dla pozostałych podstron TODO
+    
     @Test
     public void userCanChangeCurrency() {
         new BasePhptravelsPage()
                 .changeCurrency(CURRENCY);
 
-        Assert.assertEquals(new HomePage().getExpectedCurrency(), CURRENCY);
+        Assert.assertEquals(new Navigate().toHomePage().getExpectedCurrency(), CURRENCY);
+        Assert.assertEquals(new Navigate().toHotelsPage().getExpectedCurrency(), CURRENCY);
+        Assert.assertEquals(new Navigate().toToursPage().getExpectedCurrency(), CURRENCY);
     }
 
-    public void userCanBookHotelInChoosenCurrency()
-    {
+    public void userCanBookHotelInChoosenCurrency() {
 
     }
 

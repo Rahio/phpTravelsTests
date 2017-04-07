@@ -19,6 +19,8 @@ public class BasePhptravelsPage extends BasePage {
     @FindBy(xpath = "//select[@id='currency']")
     protected WebElement currecnyDropDown;
 
+    private Navigate navigate;
+
     public BasePhptravelsPage() {
         super(true);
     }
@@ -26,6 +28,7 @@ public class BasePhptravelsPage extends BasePage {
     @Override
     protected void openPage() {
         getDriver().get(TestsConfig.getBaseURL());
+        navigate = new Navigate();
     }
 
     @Override
@@ -39,11 +42,15 @@ public class BasePhptravelsPage extends BasePage {
         myAccountDropDown.click();
     }
 
-    public void changeCurrency(String currency)
+    public BasePhptravelsPage changeCurrency(String currency)
     {
         new Select(currecnyDropDown).selectByVisibleText(currency);
+        return this;
     }
 
-
+    public Navigate navigate()
+    {
+        return navigate;
+    }
 
 }
