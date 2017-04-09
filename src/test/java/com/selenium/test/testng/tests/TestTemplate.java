@@ -4,7 +4,9 @@ import com.selenium.test.webtestsbase.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,7 +21,7 @@ public class TestTemplate {
     protected WebDriverWait wait;
     private StringBuffer verificationErrors = new StringBuffer();
 
-    @BeforeClass(alwaysRun = true)
+    @BeforeSuite(alwaysRun = true)
     public void setUp() throws Exception {
         WebDriverFactory.startBrowser(true);
         driver = WebDriverFactory.getDriver();
@@ -27,7 +29,7 @@ public class TestTemplate {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
-    @AfterClass(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void tearDown() throws Exception {
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
@@ -35,6 +37,8 @@ public class TestTemplate {
                 fail(verificationErrorString);
         }
     }
+
+
 }
 
 

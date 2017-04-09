@@ -1,0 +1,24 @@
+<suite name="Suite">
+
+    <test name="Practice Grouping">
+
+        <groups>
+
+            <run>
+
+                <include name="authentication" />
+
+            </run>
+
+        </groups>
+
+        <classes>
+
+            <class name="com.selenium.test.testng.tests.userModule.LoginTests" />
+            <class name="com.selenium.test.testng.tests.userModule.RegisterTests" />
+
+        </classes>
+
+    </test>
+
+</suite>

@@ -40,7 +40,7 @@ public class LoginPage extends BasePhptravelsPage {
         return true;
     }
 
-    public void fillFieldsAndLogin(String username, String password){
+    public void fillCredentialsAndLogin(String username, String password){
         typeUsername(username);
         typePassword(password);
         loginButton.click();

@@ -7,7 +7,10 @@ import com.selenium.test.pages.userModule.LoginPage;
 import com.selenium.test.testng.tests.TestTemplate;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.util.Random;
 
 /**
  * Created by Rahi on 2017-04-04.
@@ -26,7 +29,7 @@ public class LoginTests extends TestTemplate {
 
         new LandingPage()
                 .goToLoginPage()
-                    .fillFieldsAndLogin(login, password);
+                    .fillCredentialsAndLogin(login, password);
 
         Assert.assertEquals(new AccountPage().getWelcomeMessage(), WELCOME_MESSAGE);
 
@@ -41,15 +44,17 @@ public class LoginTests extends TestTemplate {
         Assert.assertEquals(driver.getCurrentUrl(), LOGIN_PAGE_URL);
     }
 
-    @Test(groups = "authentication", dependsOnMethods = "userCanLogoutFromUppperDropdown")
-    public void userCannotLoginWithInvalidCredentialsFromUpperDropdown()
-    {
-        String login = "invalidUser@phptravels.com";
-        String password = "invalidpassword";
+    @DataProvider(name = "InvalidUserOrUnvalidMail")
+    public static Object[][] notValidMail(){
+        return new Object[][]{{"user@phptravels.com", "invalidpassword"}, {"invaliduser@phptravels.com", "demouser"} };
+    }
 
+    @Test(dataProvider = "InvalidUserOrUnvalidMail", groups = "authentication", dependsOnMethods = "userCanLogoutFromUppperDropdown")
+    public void userCannotLoginWithInvalidCredentialsFromUpperDropdown(String login, String password)
+    {
         new LandingPage()
                 .goToLoginPage()
-                .fillFieldsAndLogin(login, password);
+                .fillCredentialsAndLogin(login, password);
 
         Assert.assertEquals(new LoginPage().getInvalidCredentialsMessage(), INVALID_CREDENTIALS_MESSAGE);
 
