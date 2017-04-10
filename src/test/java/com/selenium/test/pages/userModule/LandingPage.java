@@ -17,10 +17,6 @@ public class LandingPage extends BasePhptravelsPage {
     @FindBy(xpath = "//a[@href='http://www.phptravels.net/register']")
     WebElement registerDropDownOption;
 
-
-    /*@FindBy(xpath = "//select[@id='currency']")
-    protected WebElement currecnyDropDown;
-*/
     public LandingPage() {
         super();
     }

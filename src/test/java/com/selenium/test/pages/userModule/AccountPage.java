@@ -1,6 +1,7 @@
 package com.selenium.test.pages.userModule;
 
 import com.selenium.test.pages.BasePage;
+import com.selenium.test.pages.BasePhptravelsPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * Created by Rahi on 2017-04-04.
  */
-public class AccountPage extends BasePage {
+public class AccountPage extends BasePhptravelsPage {
 
     @FindBy(className = "RTL")
     WebElement welcomeMessage;
@@ -24,7 +25,7 @@ public class AccountPage extends BasePage {
     WebElement myProfileButton;
 
     public AccountPage() {
-        super(true);
+        super();
     }
 
     @Override
@@ -34,7 +35,10 @@ public class AccountPage extends BasePage {
 
     @Override
     public boolean isPageOpened() {
-        return true;
+        if(welcomeMessage.isDisplayed())
+            return true;
+        else
+            return false;
     }
 
     public LoginPage logout()

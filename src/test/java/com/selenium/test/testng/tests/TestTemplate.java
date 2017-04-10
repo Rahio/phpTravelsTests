@@ -27,6 +27,7 @@ public class TestTemplate {
         driver = WebDriverFactory.getDriver();
         wait = new WebDriverWait(driver, 5);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
     }
 
     @AfterSuite(alwaysRun = true)

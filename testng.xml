@@ -6,7 +6,7 @@
 
             <run>
 
-                <include name="authentication" />
+                <include name="run" />
 
             </run>
 
@@ -14,8 +14,8 @@
 
         <classes>
 
-            <class name="com.selenium.test.testng.tests.userModule.LoginTests" />
-            <class name="com.selenium.test.testng.tests.userModule.RegisterTests" />
+            <class name="com.selenium.test.testng.tests.userModule.BookTourTests" />
+
 
         </classes>
 

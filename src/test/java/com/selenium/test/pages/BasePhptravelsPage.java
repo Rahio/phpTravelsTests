@@ -2,8 +2,10 @@ package com.selenium.test.pages;
 
 import com.selenium.test.configuration.TestsConfig;
 import com.selenium.test.pages.userModule.LandingPage;
+import com.selenium.test.pages.userModule.ToursPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,6 +21,8 @@ public class BasePhptravelsPage extends BasePage {
     @FindBy(xpath = "//select[@id='currency']")
     protected WebElement currecnyDropDown;
 
+    @FindBy(xpath = "//a[@href='http://www.phptravels.net/tours']")
+    protected WebElement tours;
 
 
     public BasePhptravelsPage() {
@@ -46,6 +50,13 @@ public class BasePhptravelsPage extends BasePage {
     {
         new Select(currecnyDropDown).selectByVisibleText(currency);
         return this;
+    }
+
+    public ToursPage goToToursPage()
+    {
+        wait.until(ExpectedConditions.elementToBeClickable(tours));
+        tours.click();
+        return new ToursPage();
     }
 
 }

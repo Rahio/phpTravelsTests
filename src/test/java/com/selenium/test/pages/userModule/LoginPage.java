@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Rahi on 2017-04-04.
  */
@@ -40,10 +42,11 @@ public class LoginPage extends BasePhptravelsPage {
         return true;
     }
 
-    public void fillCredentialsAndLogin(String username, String password){
+    public AccountPage fillCredentialsAndLogin(String username, String password){
         typeUsername(username);
         typePassword(password);
         loginButton.click();
+        return new AccountPage();
     }
 
     private void typeUsername(String username)

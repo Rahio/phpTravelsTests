@@ -132,4 +132,31 @@ public class RegisterTests extends TestTemplate {
         Assert.assertEquals(EXISTING_EMAIL_MESSAGE, new RegisterPage().getErrorMessage());
     }
 
+
+    @DataProvider(name = "InvalidRegistrationCredentials")
+    public static Object[][] invalidData(){
+        Credential withoutRequiredData = new Credential("534534534");
+        Credential notMatchingPassword = new Credential("John", "Doe", "765434514", "JohnDoe@mail.com", "user12345", "user123456");
+        Credential alreadyUsedData = new Credential("John", "Doe", "765434514", "user12345", "user12345");
+        Credential invalidMail = new Credential("John", "Doe", "765434514", "JohnDoemail.com", "user12345", "user12345");
+
+        return new Object[][] {
+                { withoutRequiredData, REQUIRED_FIELDS_MESSAGE },
+                { notMatchingPassword, NOT_MATCHING_PASSWORD_MESSAGE },
+                { alreadyUsedData, EXISTING_EMAIL_MESSAGE},
+                { invalidMail, EMAIL_VALIDATION_MESSAGE}
+        };
+    }
+    @Test(groups = "justthistest", dataProvider = "InvalidRegistrationCredentials")
+    public void userCannotRegistedWithInvalidCredentials(Credential credential, String expectedResult)
+    {
+        new LandingPage()
+                .goToRegisterPage()
+                .fillRegistrationForm(credential)
+                .registerAccount();
+
+        Assert.assertEquals(expectedResult, new RegisterPage().getErrorMessage());
+    }
+
+
 }
