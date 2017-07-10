@@ -26,7 +26,7 @@ public class TourDetailsPage extends BasePhptravelsPage {
         return true;
     }
 
-    public TourBookingCheckout bookThisTour()
+    public TourBookingCheckout bookTour()
     {
         bookNowButton.click();
         return new TourBookingCheckout();

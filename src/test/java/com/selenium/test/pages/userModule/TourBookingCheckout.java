@@ -1,15 +1,9 @@
 package com.selenium.test.pages.userModule;
 
 import com.selenium.test.pages.BasePhptravelsPage;
-import org.openqa.selenium.JavascriptExecutor;
+import com.selenium.test.utils.ActionBot;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
 
 /**
  * Created by Rahi on 2017-04-11.
@@ -34,15 +28,16 @@ public class TourBookingCheckout extends BasePhptravelsPage {
 
     }
 
-    public TourInvoicePage confirmBookingWithoutChanges()
+    public InvoicePage confirmBookingWithoutChanges()
     {
-        confirmThisBookingButton.click();
-        return new TourInvoicePage();
+
+        new ActionBot(getDriver()).moveToElementAndClickOnIt(confirmThisBookingButton);
+        return new InvoicePage();
     }
 
-    public TourInvoicePage addAdditionalNotes()
+    public InvoicePage addAdditionalNotes(String notes)
     {
-        additionalNotes.sendKeys("additional notes");
-        return new TourInvoicePage();
+        new ActionBot(getDriver()).type(additionalNotes, notes);
+        return new InvoicePage();
     }
 }

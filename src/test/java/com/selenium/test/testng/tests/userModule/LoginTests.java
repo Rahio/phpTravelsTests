@@ -44,12 +44,12 @@ public class LoginTests extends TestTemplate {
         Assert.assertEquals(driver.getCurrentUrl(), LOGIN_PAGE_URL);
     }
 
-    @DataProvider(name = "InvalidUserOrUnvalidMail")
+    @DataProvider(name = "InvalidUserOrInvalidMail")
     public static Object[][] notValidMail(){
         return new Object[][]{{"user@phptravels.com", "invalidpassword"}, {"invaliduser@phptravels.com", "demouser"} };
     }
 
-    @Test(dataProvider = "InvalidUserOrUnvalidMail", groups = "authentication", dependsOnMethods = "userCanLogoutFromUppperDropdown")
+    @Test(dataProvider = "InvalidUserOrInvalidMail", groups = "authentication", dependsOnMethods = "userCanLogoutFromUppperDropdown")
     public void userCannotLoginWithInvalidCredentialsFromUpperDropdown(String login, String password)
     {
         new LandingPage()

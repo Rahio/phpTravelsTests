@@ -46,9 +46,8 @@ public class ToursPage extends BasePhptravelsPage {
         return new Navigate();
     }
 
-    public TourDetailsPage openFirstTourPage()
+    public TourDetailsPage openFirstTour()
     {
-        System.out.println(tourDetailsList.size());
         tourDetailsList.get(0).click();
         return new TourDetailsPage();
     }

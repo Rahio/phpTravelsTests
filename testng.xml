@@ -6,7 +6,7 @@
 
             <run>
 
-                <include name="run" />
+                <include name="smoke" />
 
             </run>
 
@@ -14,7 +14,7 @@
 
         <classes>
 
-            <class name="com.selenium.test.testng.tests.userModule.BookTourTests" />
+            <class name="com.selenium.test.testng.tests.userModule.ForgottenPasswordTests" />
 
 
         </classes>
